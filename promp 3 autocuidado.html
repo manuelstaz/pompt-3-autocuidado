@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autocuidado</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .message-container {
+            background-color: #ffeb3b;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="message-container animate__animated animate__fadeIn">
+    <div id="message" class="message">Haz una pausa y respira profundamente.</div>
+    <button class="btn-custom" id="newMessageBtn">¿Qué necesito hoy?</button>
+</div>
+
+<script>
+    const messages = [
+        "Recuerda que un respiro profundo te recarga de energía.",
+        "Haz una pausa y conecta con el presente.",
+        "Eres capaz de lograr lo que te propongas, no te olvides de cuidar de ti.",
+        "Un poco de calma puede cambiar tu día.",
+        "El autocuidado es un acto de amor propio.",
+        "Recuerda que está bien descansar, mereces un tiempo para ti.",
+        "Tómate un momento para hacer algo que te haga feliz."
+    ];
+
+    document.getElementById('newMessageBtn').addEventListener('click', function() {
+        const randomIndex = Math.floor(Math.random() * messages.length);
+        const newMessage = messages[randomIndex];
+        const messageContainer = document.getElementById('message');
+
+        messageContainer.classList.remove("animate__fadeIn");
+        void messageContainer.offsetWidth; // Re-trigger the animation
+        messageContainer.classList.add("animate__fadeIn");
+        messageContainer.textContent = newMessage;
+    });
+</script>
+
+</body>
+</html>
